@@ -1,15 +1,37 @@
 import React from 'react'
 import { Button } from '../../components/Button'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
+import * as C from './style'
+import banner from '../../assets/computer-programmer.jpg'
 
 const Home = () => {
+  const navigate = useNavigate()
+  const handleClickSignIn = () => {
+    navigate('/login')
+  }
+
   return (
     <>
         <Header />
-        <Button title="Teste 1" />
-        <Button title="Teste 2" variant='secondary'/>
-        <Link to="/login">Ir para o login</Link>
+        <C.Container>
+          <div>
+            <C.Title>
+              <C.TitleHighlight>
+                Implemente
+                <br />
+              </C.TitleHighlight>
+              o seu futuro global agora!
+            </C.Title>
+            <C.TextContent>
+              Domine as tecnologias utilizadas pelas empresas mais inovadoras...
+            </C.TextContent>
+            <Button title="Começar agora" variant='secondary' onClick={handleClickSignIn} />
+          </div>
+          <div>
+            <img src={banner} alt="Imagem principal" />
+          </div>
+        </C.Container>
     </>
   )
 }
