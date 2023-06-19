@@ -3,7 +3,7 @@ import { Button } from '../../components/Button'
 import { useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
 import * as C from './style'
-import banner from '../../assets/computer-programmer.jpg'
+import banner from '../../assets/image 1.png'
 
 const Home = () => {
   const navigate = useNavigate()

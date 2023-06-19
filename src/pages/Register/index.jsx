@@ -9,15 +9,17 @@ import * as C from './style'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { AiOutlineMail, AiOutlineLock } from 'react-icons/ai'
+import { BsPerson } from 'react-icons/bs'
 
 
 const schema = yup.object({
+  name: yup.string().min(3, 'At least 3 char').required('Required field'),
   email: yup.string().email('Email is not valid').required('Required field'),
   password: yup.string().min(3, 'At least 3 char').required('Required field'),
 }).required();
 
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate()
 
   const { control, handleSubmit, formState: { errors, isValid } } = useForm({
@@ -56,14 +58,15 @@ const Login = () => {
               <C.TitleLogin>Faça seu cadastro</C.TitleLogin>
               <C.SubTitleLogin>Faça seu login e make the change._</C.SubTitleLogin>
               <form onSubmit={handleSubmit(onSubmit)}>
+                <Input name="name" errorMessage={errors?.name?.message} control={control} placeholder="Nome" type="text" leftIcon={<BsPerson />} />
                 <Input name="email" errorMessage={errors?.email?.message} control={control} placeholder="E-mail" type="email" leftIcon={<AiOutlineMail />} />
                 <Input name="password" errorMessage={errors?.password?.message} control={control} placeholder="Senha" type="password" leftIcon={<AiOutlineLock />} />
                 <Button title="Entrar" variant="secondary" type="submit" />
                 <C.Row>
-                  <C.ForgotText>Esqueci minha senha</C.ForgotText>
-                  <Link to='/register'>
-                    <C.ForgotText><span>Criar Conta</span></C.ForgotText>
-                  </Link>
+                  <C.SubTitleLogin>Ao clicar em "criar minha conta grátis", declaro que aceito as Políticas de Privacidade e os Termos de Uso da DIO.</C.SubTitleLogin>
+                </C.Row>
+                <C.Row>
+                  <C.ForgotText>Já tenho conta.<Link to='/login'><span> Fazer login</span></Link></C.ForgotText>
                 </C.Row>
               </form>
             </C.Wrapper>
@@ -73,4 +76,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

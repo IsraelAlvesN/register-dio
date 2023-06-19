@@ -53,7 +53,7 @@ export const SubTitleLogin = styled.p`
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
     line-height: 25px;
 `
 
@@ -63,7 +63,7 @@ export const ForgotText = styled.p`
     font-weight: 700;
     font-size: 14px;
     line-height: 19px;
-    color: #E5E044;
+    color: #FFF;
 
     span{
         color: #23DD7A;
